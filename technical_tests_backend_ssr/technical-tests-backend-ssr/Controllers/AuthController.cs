@@ -1,5 +1,4 @@
-﻿// Controllers/AuthController.cs
-using technical_tests_backend_ssr.Services.Interfaces;
+﻿using technical_tests_backend_ssr.Services.Interfaces;
 using technical_tests_backend_ssr.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -23,6 +22,6 @@ public class AuthController : ControllerBase
         if (user == null)
             return Unauthorized("Invalid credentials");
 
-        return Ok(user); // En una aplicación real, aquí se devolvería un token
+        return Ok(user); 
     }
 }

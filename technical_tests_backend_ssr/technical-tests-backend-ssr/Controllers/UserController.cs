@@ -42,7 +42,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> Create([FromBody] CreateUserDto userDto)
     {
         var user = _mapper.Map<User>(userDto);
-        await _userService.AddUserAsync(user); // Verifica que aquí se esté usando UserService y no AuthService
+        await _userService.AddUserAsync(user); 
         return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
     }
 

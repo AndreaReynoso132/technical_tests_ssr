@@ -1,6 +1,6 @@
 ﻿using technical_tests_backend_ssr.Services.Interfaces;
 using technical_tests_backend_ssr.Repositories.Interfaces;
-using BCrypt.Net; // Importa la biblioteca BCrypt
+using BCrypt.Net; 
 using technical_tests_backend_ssr.DTOs;
 
 
@@ -45,7 +45,6 @@ namespace technical_tests_backend_ssr.Services
         {
             try
             {
-                // Hashear la contraseña antes de guardar
                 user.Contrasenia = HashPassword(user.Contrasenia);
 
                 await _userRepository.AddAsync(user);
@@ -65,14 +64,12 @@ namespace technical_tests_backend_ssr.Services
         {
             try
             {
-                // Mapear los campos que se pueden actualizar
                 user.Nombre = updateUserDto.Nombre ?? user.Nombre;
                 user.Apellido = updateUserDto.Apellido ?? user.Apellido;
                 user.DNI = updateUserDto.DNI ?? user.DNI;
                 user.Rol = updateUserDto.Rol ?? user.Rol;
                 user.Usuario = updateUserDto.Usuario ?? user.Usuario;
 
-                // Verificar si se ha proporcionado una nueva contraseña para actualizar
                 if (!string.IsNullOrEmpty(updateUserDto.Contrasenia))
                 {
                     user.Contrasenia = HashPassword(updateUserDto.Contrasenia);
