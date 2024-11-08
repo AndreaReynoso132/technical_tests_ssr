@@ -53,6 +53,6 @@ DTOs: Objetos de transferencia de datos utilizados en la API.
 Validators: Validaciones con FluentValidation para garantizar la integridad de los datos.
 
 c.Mejoras
-Me hubiese gustador poder implementar un JWT, debido a que es un aspecto basi de seguridad. 
+Me hubiese gustador poder implementar un JWT, debido a que es un aspecto basico de seguridad. 
 
 
