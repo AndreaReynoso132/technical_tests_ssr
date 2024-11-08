@@ -1,0 +1,62 @@
+<p-dialog [(visible)]="visible" [modal]="true" header="Editar Usuario" [closable]="false" class="custom-modal">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="usuario">Usuario</label>
+      <input id="usuario" formControlName="usuario" type="text" pInputText />
+      <div *ngIf="editForm.get('usuario')?.invalid && editForm.get('usuario')?.touched">
+        <small class="error-message">El usuario es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" formControlName="nombre" type="text" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input id="apellido" formControlName="apellido" type="text" pInputText />
+    </div>
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input id="dni" formControlName="dni" type="text" pInputText />
+      <div *ngIf="editForm.get('dni')?.errors?.['dniExists']">
+        <small class="error-message">Este DNI ya está registrado en otro usuario.</small>
+      </div>
+      <div *ngIf="editForm.get('dni')?.errors?.['pattern']">
+        <small class="error-message">El DNI debe tener 8 dígitos.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <select id="rol" formControlName="rol" pInputText>
+        <option value="Empleado">Empleado</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Encargado">Encargado</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="contrasenia">Contraseña</label>
+      <div class="password-container">
+        <input
+          id="contrasenia"
+          formControlName="contrasenia"
+          [type]="passwordVisible ? 'text' : 'password'"
+          pInputText
+        />
+        <button
+          type="button"
+          (click)="togglePasswordVisibility()"
+          aria-label="Toggle password visibility"
+          title="Mostrar/Ocultar Contraseña"
+        >
+          <i class="pi" [ngClass]="passwordVisible ? 'pi-eye-slash' : 'pi-eye'"></i>
+        </button>
+      </div>
+    </div>
+    
+    
+    <div class="modal-footer">
+      <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="close()" title="Cancelar" class="cancel-button"></button>
+      <button pButton type="submit" label="Guardar" icon="pi pi-check" title="Guardar" class="save-button" [disabled]="editForm.invalid"></button>
+    </div>
+  </form>
+</p-dialog>

@@ -1,0 +1,113 @@
+.custom-modal ::ng-deep .p-dialog {
+  width: 80% !important;
+  max-width: 700px;
+  border-radius: 8px;
+  background-color: #ECF0F1;
+}
+
+.custom-modal ::ng-deep .p-dialog-titlebar {
+  background-color: #1b7ada;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.modal-content {
+  padding: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #030405;
+  }
+
+  input, select {
+    padding: 0.5rem;
+    border: 1px solid #edeeee;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #030405;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  .cancel-button {
+    background-color: #d43f12;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .save-button {
+    background-color: #1b7ada;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.custom-snack-bar {
+  font-size: 1.5rem; /* Tamaño de fuente más grande */
+  text-align: center;
+  background-color: #323232; /* Fondo oscuro */
+  color: #ffffff; /* Texto en blanco */
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-snack-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000; 
+}

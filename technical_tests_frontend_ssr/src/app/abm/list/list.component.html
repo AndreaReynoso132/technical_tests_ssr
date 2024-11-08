@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="header-system">
+    <div class="header-left">
+      <img src="assets/usuario.png" alt="Logo" class="logo">
+      <h1 class="system-title">Gestión de Usuarios</h1>
+    </div>
+  
+    <div class="user-info">
+      <span>Bienvenido/a, {{ userName }}</span>
+      <button (click)="logout()" class="logout-button">
+        <i class="pi pi-sign-out"></i> Cerrar sesión
+      </button>
+    </div>
+  </div>
+  
+  <div class="header">
+    <h1 class="title">Usuarios</h1>
+    <button pButton icon="pi pi-user-plus" label="Crear" class="create-button" (click)="openCreateModal()"
+            aria-label="Registrar Usuario" title="Registrar Usuario"></button>
+  </div>
+
+  <div class="filter-section">
+    <input type="text" placeholder="Buscar por Usuario" (input)="applyFilter($event, 'usuario', table)" class="filter-input" />
+    <input type="text" placeholder="Buscar por Nombre" (input)="applyFilter($event, 'nombre', table)" class="filter-input" />
+    <input type="text" placeholder="Buscar por Apellido" (input)="applyFilter($event, 'apellido', table)" class="filter-input" />
+    <input type="text" placeholder="Buscar por DNI" (input)="applyFilter($event, 'dni', table)" class="filter-input" />
+    <input type="text" placeholder="Buscar por Rol" (input)="applyFilter($event, 'rol', table)" class="filter-input" />
+  </div>
+
+  <div class="table-container">
+    <p-table #table [value]="items" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th (click)="sortBy('usuario')">
+            Usuario
+            <i *ngIf="sortField === 'usuario'" class="pi" [ngClass]="sortOrder === 'asc' ? 'pi-sort-amount-up' : 'pi-sort-amount-down'"></i>
+          </th>
+          <th (click)="sortBy('nombre')">
+            Nombre
+            <i *ngIf="sortField === 'nombre'" class="pi" [ngClass]="sortOrder === 'asc' ? 'pi-sort-amount-up' : 'pi-sort-amount-down'"></i>
+          </th>
+          <th (click)="sortBy('apellido')">
+            Apellido
+            <i *ngIf="sortField === 'apellido'" class="pi" [ngClass]="sortOrder === 'asc' ? 'pi-sort-amount-up' : 'pi-sort-amount-down'"></i>
+          </th>
+          <th>DNI</th>
+          <th>Rol</th>
+          <th class="actions-header">Editar/Eliminar</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{ item.usuario }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.apellido }}</td>
+          <td>{{ item.dni }}</td>
+          <td>{{ item.rol }}</td>
+          <td class="actions">
+            <button pButton (click)="openEditModal(item)" aria-label="Edit User" title="Edit User">
+              <img src="assets/editar.png" alt="Editar" />
+            </button>
+            <button pButton (click)="openDeleteModal(item)" aria-label="Delete User" title="Delete User">
+              <img src="assets/eliminar.png" alt="Eliminar" />
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <button pButton type="button" icon="pi pi-download" label="Descargar CSV" class="download-button" (click)="downloadCSV()"></button>
+  </div>
+
+  <!-- Modales -->
+  <app-create-user-modal #createModal [users]="users" (userCreated)="onUserCreated($event)"></app-create-user-modal>
+  <app-edit-user-modal #editModal [users]="users" (userUpdated)="onUserUpdated($event)"></app-edit-user-modal>
+  <app-delete-confirmation-modal #deleteModal (confirmDelete)="onUserDeleted($event)"></app-delete-confirmation-modal>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="assets/usuariofooter.png" alt="Logo" class="footer-logo" />
+      <div class="footer-text">
+        <p>Gestión de Usuarios</p>
+        <p>&copy; <span id="current-year"></span> Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,10 @@
+<p-dialog [(visible)]="visible" [modal]="true" header="Confirmar Eliminación" [closable]="false" class="custom-modal">
+  <p>¿Estás seguro que deseas eliminar al usuario <strong>{{ userToDelete?.usuario }}</strong>?</p>
+
+  <div class="modal-footer">
+    <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="close()" title="Cancelar" class="cancel-button"></button>
+    <button pButton type="button" label="Eliminar" icon="pi pi-trash" (click)="confirmDeleteAction()" title="Eliminar" class="delete-button"></button>
+  </div>
+
+  <p *ngIf="message" class="message" [ngClass]="{ 'success': success, 'error': !success }">{{ message }}</p>
+</p-dialog>

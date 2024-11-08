@@ -1,0 +1,202 @@
+@import "~primeicons/primeicons.css";
+
+
+$color-principal: #1b7ada;
+$color-secundario: #3498DB;
+$color-fondo: #ECF0F1;
+$color-acento: #d43f12;
+$color-texto-principal: #030405;
+$color-texto-secundario: #7F8C8D;
+$color-inactivo: #338ac4;
+
+body {
+  font-family: 'Roboto', 'Open Sans', 'Montserrat', sans-serif;
+  background-color: $color-fondo;
+  color: $color-texto-principal;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1.title {
+  color: $color-principal;
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.create-button {
+  background-color: $color-principal;
+  color: white;
+  font-size: 16px; // Aumentamos el tamaño de la fuente
+  padding: 12px 24px; // Ajustamos el padding para hacerlo más grande
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-right: 15px; // Ajuste opcional para separación
+
+  &:hover {
+      background-color: darken($color-principal, 10%);
+  }
+}
+
+.table-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: $color-secundario;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* Estilos para el encabezado del sistema */
+.header-system {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  background-color: $color-secundario;
+  color: white;
+  width: 100vw; /* Ocupa el ancho completo de la ventana */
+  position: relative; /* Permite que ocupe todo el ancho */
+  left: 50%; /* Centra en pantalla */
+  transform: translateX(-50%);
+  margin-top: -20px; /* Coloca el título más arriba */
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 40px; /* Ajusta el tamaño del logotipo */
+  height: 40px;
+  margin-right: 15px;
+}
+
+/* Título del sistema en letras blancas */
+.system-title {
+  font-size: 1.8rem;
+  color: white; /* Asegura que las letras sean blancas */
+  font-weight: bold;
+}
+
+/* Ajustes para el título de la tabla y el botón */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 0; /* Evita el margen superior en la tabla */
+}
+.title {
+  font-size: 1.8rem;
+  color: $color-fondo;
+}
+
+/* Estilo para la sección de filtro */
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px; /* Espacio entre el filtro y la tabla */
+  padding: 10px;
+  background-color: $color-fondo;
+  border-radius: 5px;
+}
+
+.filter-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid $color-secundario;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.actions-header, .actions {
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 8px; /* Espacio entre los iconos */
+  justify-content: center; /* Centrar los iconos horizontalmente */
+
+  button {
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+
+      img {
+          width: 30px; /* Tamaño ajustado de los iconos */
+          height: 30px;
+      }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 15px 0;
+  background-color: $color-secundario;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  font-weight: bold;
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    p:first-child {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    p:last-child {
+      font-size: 12px;
+      color: rgb(36, 31, 31);
+    }
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

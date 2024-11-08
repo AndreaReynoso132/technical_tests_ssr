@@ -1,0 +1,181 @@
+@import 'src/styles.scss';
+
+.user-table-container {
+  background-color: $color-fondo;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.header-system {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-secundario;
+  padding: 1rem;
+  color: white;
+  border-radius: 8px;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    margin-right: 0.5rem;
+  }
+
+  .system-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: #fff;
+  }
+
+  .logout-button {
+    background-color: $color-secundario;
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    &:hover {
+      background-color: darken($color-secundario, 10%);
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  color: $color-principal;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.create-button {
+  background-color: $color-secundario;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  &:hover {
+    background-color: darken($color-secundario, 10%);
+  }
+}
+
+.filter-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  .custom-input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid $color-inactivo;
+    width: 100%;
+    max-width: 200px;
+
+    &:focus {
+      border-color: $color-secundario;
+      outline: none;
+    }
+  }
+}
+
+p-table {
+  .ui-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    th {
+      background-color: $color-principal;
+      color: #fff;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      color: $color-texto-principal;
+      padding: 1rem;
+      border-bottom: 1px solid $color-inactivo;
+    }
+
+    th, td {
+      &:first-child {
+        font-weight: normal;
+        color: $color-texto-principal;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+  }
+}
+
+.edit-button, .delete-button {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.edit-button {
+  background-color: $color-secundario;
+  &:hover {
+    background-color: darken($color-secundario, 10%);
+  }
+}
+
+.delete-button {
+  background-color: $color-acento;
+  &:hover {
+    background-color: darken($color-acento, 10%);
+  }
+}
+
+.table-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.download-button {
+  align-self: flex-end;
+  background-color: #00d1d1;
+  color: white;
+  border-radius: 4px;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.download-button:hover {
+  background-color: #00b3b3;
+}
+

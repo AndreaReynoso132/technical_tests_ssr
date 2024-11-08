@@ -1,0 +1,47 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+
+# Ignore logs, database, and other temporary files
+*.log
+*.ldf
+*.mdf
+*.db
+*.sql
+
+# Ignore configuration files that might contain sensitive data
+appsettings*.json
+
+# Ignore .NET environment files
+.vscode/
+.vs/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore package manager files
+node_modules/
+wwwroot/lib/
+
+# Ignore JetBrains Rider files
+.idea/
+
+# Ignore generated files for EF migrations
+Migrations/
+
+# Ignore files for Secrets (if using user secrets in .NET)
+secrets.json
+
+# Ignore dependency cache
+**/packages
+*.nupkg
+
+# Ignore publish output
+publish/

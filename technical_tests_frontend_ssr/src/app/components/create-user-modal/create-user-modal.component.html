@@ -1,0 +1,74 @@
+<p-dialog [(visible)]="isOpen" [modal]="true" header="Crear Usuario" [closable]="false" class="custom-modal">
+  <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+    <!-- Campo Nombre -->
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" formControlName="nombre" type="text" pInputText />
+      <div *ngIf="createUserForm.get('nombre')?.invalid && createUserForm.get('nombre')?.touched">
+        <small class="error-message">El nombre es requerido.</small>
+      </div>
+    </div>
+
+    <!-- Campo Apellido -->
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input id="apellido" formControlName="apellido" type="text" pInputText />
+      <div *ngIf="createUserForm.get('apellido')?.invalid && createUserForm.get('apellido')?.touched">
+        <small class="error-message">El apellido es requerido.</small>
+      </div>
+    </div>
+
+    <!-- Campo DNI -->
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input id="dni" formControlName="dni" type="text" pInputText />
+      <div *ngIf="createUserForm.get('dni')?.errors?.['dniExists']">
+        <small class="error-message">Este DNI ya existe.</small>
+      </div>
+      <div *ngIf="createUserForm.get('dni')?.errors?.['pattern']">
+        <small class="error-message">El DNI debe tener 8 dígitos.</small>
+      </div>
+      <div *ngIf="createUserForm.get('dni')?.invalid && createUserForm.get('dni')?.touched && !createUserForm.get('dni')?.errors?.['pattern'] && !createUserForm.get('dni')?.errors?.['dniExists']">
+        <small class="error-message">El DNI es requerido.</small>
+      </div>
+    </div>
+
+    <!-- Campo Rol -->
+    <div class="form-group">
+      <label for="rol">Rol</label>
+      <select id="rol" formControlName="rol" pInputText>
+        <option value="Empleado">Empleado</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Encargado">Encargado</option>
+      </select>
+      <div *ngIf="createUserForm.get('rol')?.invalid && createUserForm.get('rol')?.touched">
+        <small class="error-message">El rol es requerido.</small>
+      </div>
+    </div>
+
+    <!-- Campo Usuario -->
+    <div class="form-group">
+      <label for="usuario">Usuario</label>
+      <input id="usuario" formControlName="usuario" type="text" pInputText />
+      <div *ngIf="createUserForm.get('usuario')?.invalid && createUserForm.get('usuario')?.touched">
+        <small class="error-message">El usuario es requerido.</small>
+      </div>
+    </div>
+
+    <!-- Campo Contraseña -->
+    <div class="form-group">
+      <label for="contrasenia">Contraseña</label>
+      <input id="contrasenia" formControlName="contrasenia" type="password" pInputText />
+      <div *ngIf="createUserForm.get('contrasenia')?.invalid && createUserForm.get('contrasenia')?.touched">
+        <small *ngIf="createUserForm.get('contrasenia')?.hasError('required')" class="error-message">La contraseña es requerida.</small>
+        <small *ngIf="createUserForm.get('contrasenia')?.hasError('pattern')" class="error-message">La contraseña debe contener letras y números.</small>
+        <small *ngIf="createUserForm.get('contrasenia')?.hasError('minlength')" class="error-message">La contraseña debe tener al menos 8 caracteres.</small>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="close()" title="Cancelar" class="cancel-button"></button>
+      <button pButton type="submit" label="Crear Usuario" icon="pi pi-check" title="Crear Usuario" class="save-button" [disabled]="createUserForm.invalid"></button>
+    </div>
+  </form>
+</p-dialog>
