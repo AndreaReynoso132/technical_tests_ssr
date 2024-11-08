@@ -1,6 +1,5 @@
 <p-dialog [(visible)]="isOpen" [modal]="true" header="Crear Usuario" [closable]="false" class="custom-modal">
   <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
-    <!-- Campo Nombre -->
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input id="nombre" formControlName="nombre" type="text" pInputText />
@@ -9,7 +8,6 @@
       </div>
     </div>
 
-    <!-- Campo Apellido -->
     <div class="form-group">
       <label for="apellido">Apellido</label>
       <input id="apellido" formControlName="apellido" type="text" pInputText />
@@ -18,7 +16,6 @@
       </div>
     </div>
 
-    <!-- Campo DNI -->
     <div class="form-group">
       <label for="dni">DNI</label>
       <input id="dni" formControlName="dni" type="text" pInputText />
@@ -33,7 +30,6 @@
       </div>
     </div>
 
-    <!-- Campo Rol -->
     <div class="form-group">
       <label for="rol">Rol</label>
       <select id="rol" formControlName="rol" pInputText>
@@ -46,7 +42,6 @@
       </div>
     </div>
 
-    <!-- Campo Usuario -->
     <div class="form-group">
       <label for="usuario">Usuario</label>
       <input id="usuario" formControlName="usuario" type="text" pInputText />
@@ -55,7 +50,6 @@
       </div>
     </div>
 
-    <!-- Campo Contraseña -->
     <div class="form-group">
       <label for="contrasenia">Contraseña</label>
       <input id="contrasenia" formControlName="contrasenia" type="password" pInputText />

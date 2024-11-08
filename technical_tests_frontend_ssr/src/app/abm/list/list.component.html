@@ -70,12 +70,10 @@
     <button pButton type="button" icon="pi pi-download" label="Descargar CSV" class="download-button" (click)="downloadCSV()"></button>
   </div>
 
-  <!-- Modales -->
   <app-create-user-modal #createModal [users]="users" (userCreated)="onUserCreated($event)"></app-create-user-modal>
   <app-edit-user-modal #editModal [users]="users" (userUpdated)="onUserUpdated($event)"></app-edit-user-modal>
   <app-delete-confirmation-modal #deleteModal (confirmDelete)="onUserDeleted($event)"></app-delete-confirmation-modal>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <img src="assets/usuariofooter.png" alt="Logo" class="footer-logo" />

@@ -13,7 +13,6 @@ export class ItemEffects {
     private itemService: ItemService
   ) {}
 
-  // Efecto para cargar items
   loadItems$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ItemActions.loadItems),
@@ -26,7 +25,6 @@ export class ItemEffects {
     )
   );
 
-  // Efecto para agregar un nuevo item
   addItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ItemActions.addItem),
@@ -39,7 +37,6 @@ export class ItemEffects {
     )
   );
 
-  // Efecto para actualizar un item
   updateItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ItemActions.updateItem),
@@ -52,7 +49,6 @@ export class ItemEffects {
     )
   );
 
-  // Efecto para eliminar un item
   deleteItem$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ItemActions.deleteItem),

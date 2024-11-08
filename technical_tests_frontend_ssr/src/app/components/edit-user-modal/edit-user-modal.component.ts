@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar'; // Importa MatSnackBar
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { Item } from '../../states/item.model';
 
 @Component({
@@ -13,13 +13,13 @@ export class EditUserModalComponent {
 
   visible: boolean = false;
   editForm: FormGroup;
-  passwordVisible: boolean = false; // Controla la visibilidad de la contraseña
+  passwordVisible: boolean = false; 
 
   @Input() itemToEdit!: Item;
-  @Input() users: Item[] = []; // Lista de usuarios para la validación del DNI
+  @Input() users: Item[] = []; 
   @Output() userUpdated = new EventEmitter<Item>();
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) { // Inyecta MatSnackBar
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) { 
     this.editForm = this.fb.group({
       id: ['', Validators.required],
       usuario: ['', Validators.required],
@@ -33,12 +33,11 @@ export class EditUserModalComponent {
       rol: ['', Validators.required],
       contrasenia: [
         '',
-        [Validators.minLength(8)] // Validación de longitud mínima para la contraseña
+        [Validators.minLength(8)] 
       ]
     });
   }
 
-  // Validador asíncrono para verificar si el DNI ya existe en la lista de usuarios
   dniExistsValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const dni = control.value;

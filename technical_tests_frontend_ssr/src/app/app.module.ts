@@ -8,8 +8,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AbmModule } from './abm/abm.module';
 import { itemReducer } from './states/item.reducer';
 import { ItemEffects } from './states/item.effects';
-import { authReducer } from './states/auth.reducer'; // Importar el reducer de autenticación
-import { AuthEffects } from './states/auth.effects'; // Importar los efectos de autenticación
+import { authReducer } from './states/auth.reducer'; 
+import { AuthEffects } from './states/auth.effects'; 
 import { HttpClientModule } from '@angular/common/http';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { AuthService } from './states/auth.service'; // Importar el servicio de autenticación
+import { AuthService } from './states/auth.service'; 
 
 @NgModule({
   declarations: [
